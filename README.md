@@ -1,4 +1,4 @@
-# scRNA-seq analysis: Old vs. Young (CIA controls) mice synovial tissue
+# scRNA-seq analysis: Old vs. Young (CIA controls) mice synovial tissues
 
 ### **Prerequisite: Server & Environment**
 * **todata2:** Supports Seurat v5 natively.
