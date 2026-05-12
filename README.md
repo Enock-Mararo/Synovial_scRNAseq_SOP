@@ -1,4 +1,4 @@
-# scRNA-seq analysis: Old vs. Young (CIA controls) mice synovial tissues
+# scRNA-seq analysis: Old vs. Young mice synovial tissues
 
 ### **Prerequisite: Server & Environment**
 * **todata2:** Supports Seurat v5 natively.
@@ -378,16 +378,15 @@ table(synovial_cohort$seurat_clusters)
 ```
 ---
 
-### **Data Access Summary**
-For transparency and administrative oversight, the master dataset is stored at the following absolute location on the `todata3` server:
+### 12. Data Access Summary Table
+Add this table to the bottom of your README to make the metadata immediately discoverable for incoming researchers.
 
 
-| Attribute | Value |
-| :--- | :--- |
-| **Owner** | `emm44q` |
-| **Primary Directory** | `/home/emm44q/Mahony_Lab/scRNA_seq_data/Eidan/` |
-| **Filename** | `Synovial_3vs3_CCA_Integrated.rds` |
-| **Format** | R Data Serialized (`.rds`) |
+| Resource Type | Server | Absolute System Path |
+| :--- | :--- | :--- |
+| **Integrated Object** | `todata3` | `/home/emm44q/Mahony_Lab/scRNA_seq_data/Eidan/Synovial_3vs3_CCA_Integrated.rds` |
+| **Control Raw Data** | MARS | `/mnt/autofs/data/userdata/project0067/Lab_Data/mouse_ageing/CIA_controls/` |
+| **Software Env** | `todata3` | `/home/emm44q/.conda/envs/seurat5_env` |
 
 ***
 
