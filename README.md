@@ -164,7 +164,7 @@ VlnPlot(combined_mouse, features = c("nFeature_RNA", "percent.mt"), ncol = 2)
 ```
 
 <img width="4200" height="2400" alt="Fig1_Adaptive_QC_Audit" src="https://github.com/user-attachments/assets/2a1746f8-0686-47ee-b3e1-95f9ca6374ce" />
-***
+
 ### 7. Quality Control (QC) Filters
 **Objective:** Remove technical artifacts (empty droplets, multiplets, and apoptotic cells) and exclude sub-optimal samples to establish a statistically sound 3-vs-3 comparative cohort.
 
