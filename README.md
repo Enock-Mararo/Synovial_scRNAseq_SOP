@@ -9,6 +9,18 @@
 ### 1. Setup Server and Environment
 **Objective:** Establish a secure connection to the MVLS computational server (`todata3`) from a local Windows machine and configure a protected environment for Seurat v5.
 
+### Prerequisite: Secure Network Authentication
+Before attempting to communicate with the server, you must establish a secure tunnel into the University of Glasgow's internal network. Without this, the SSH handshake will time out.
+
+* **VPN Client:** Utilize the Cisco Secure Client (AnyConnect).
+* **Initialize Client:** Launch the Cisco Secure Client application on your local machine.
+* **Target Node:** In the connection box, enter the gateway address: `vpngateway.gla.ac.uk`.
+* **Credentials:** Enter your unique University GUID and password when prompted.
+* **Multi-Factor Authentication (MFA):** Approve the push notification via the Duo Mobile app on your registered mobile device to finalize the secure handshake.
+* **Verification:** Ensure the client status displays "Connected" before attempting to initiate the SSH session.
+
+***
+
 #### Accessing the todata3 Server via SSH
 Because sequencing data must remain secure, ensure you are connected to the University of Glasgow VPN (Cisco Secure Client). Open the Windows PowerShell terminal and initiate a Secure Shell (SSH) connection using your GUID:
 
