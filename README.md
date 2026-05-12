@@ -115,16 +115,38 @@ cat(" ✅ High memory reserved successfully. Workspace is clean.")
 ```
 
 ### 6. Load the Data
-**Objective:** Securely transfer raw 10X Genomics sequencing matrices from MARS and construct the initial Seurat object.
+**Objective:** Securely transfer raw 10X Genomics sequencing matrices from the MARS server to your local project directory.
 
-#### Transferring 10X data from MARS
-Return to your PowerShell terminal. We use `rsync` instead of a standard copy command because `rsync` will automatically resume the transfer if the connection drops, preventing corrupted data. 
+#### Path Specification
+To ensure the transfer is directed correctly, distinguish between the laboratory source and your personal workspace:
+
+
+| Role | Server | Absolute Path |
+| :--- | :--- | :--- |
+| **Source (Chris's Data)** | MARS | `/mnt/autofs/data/userdata/project0067/Lab_Data/mouse_ageing/` |
+| **Destination (Your Folder)** | `todata3` | `~/UofG_SingleCell_Enock/mouse_ageing_data/` |
+
+#### Executing the Transfer
+Run this command in your PowerShell terminal. We utilize `rsync` because it is a utility that preserves data integrity and automatically resumes if the connection is lost.
 
 ```bash
+# Execute high-integrity transfer from MARS to todata3
+# -a: Archive mode (preserves file permissions)
+# -v: Verbose (displays progress in the terminal)
+# -z: Compress (reduces network load during transfer)
 rsync -avz /mnt/autofs/data/userdata/project0067/Lab_Data/mouse_ageing/ ~/UofG_SingleCell_Enock/mouse_ageing_data/
 ```
 
-> **🔍 Sanity Check:** Run `du -sh ~/UofG_SingleCell_Enock/mouse_ageing_data/` to confirm the folder is multiple Gigabytes in size, proving the transfer finished completely.
+> **🔍 Sanity Check: Verify Transfer Volume**
+> Confirm the transfer is complete by checking the total disk usage of your destination folder.
+> 
+> ```bash
+> # Check the total size of the downloaded sequencing data
+> du -sh ~/UofG_SingleCell_Enock/mouse_ageing_data/
+> ```
+> 
+> **Verification:** The output must show `G` (e.g., `12G`) to confirm gigabytes of data were moved.
+
 
 #### Defining the Root Directory in Jupyter
 Moving back to your Jupyter Notebook, set the "Main Address" for your data. We map the specific subfolders to ensure the raw matrices are accurately pulled for both the Aged cohort and the Young CIA controls.
